@@ -1,0 +1,26 @@
+[build-system]
+requires = ["maturin>=1.0,<2.0"]
+build-backend = "maturin"
+
+[project]
+name = "spatial-extremes"
+version = "0.1.0"
+description = "Spatial extremes with Rust backend"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.9"
+dependencies = [
+    "numpy>=1.21",
+    "pandas>=1.3",
+    "scipy>=1.7",
+]
+
+[project.optional-dependencies]
+geo = ["geopandas>=0.10"]
+polars = ["polars>=0.18"]
+dev = ["pytest>=7.0", "maturin>=1.0"]
+
+[tool.maturin]
+python-source = "python"
+module-name = "spatial_extremes._rust"
+manifest-path = "Cargo.toml"
